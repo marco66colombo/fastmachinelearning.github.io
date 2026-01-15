@@ -2,38 +2,32 @@ title: Fast Machine Learning Foundation
 short_title: FastML Foundation
 email: fml@fastmachinelearning.org
 
-one_liner: Real-time and accelerated ML for fundamental sciences
+one_liner: A non-profit foundation advancing real-time and accelerated ML for fundamental sciences
 description: >
-  Fast ML Lab is a research collective of physicists, engineers, and computer scientists
-  interested in deploying machine learning algorithms for unique and challenging scientific applications. Our projects
-  range from real-time, on-detector and low latency machine learning applications to high-throughput
-  heterogeneous computing big data challenges. We are interested in deploying sophisticated machine
-  learning algorithms to advance the exploration of fundamental physics from the world's biggest colliders
-  to the most intense particle beams to the cosmos.
+  Fast Machine Learning Foundation is a non-profit created to develop tools and training for machine learning
+  algorithms in unique and challenging scientific applications. We bring together physicists, engineers, and
+  computer scientists to build and deploy real-time, on-detector, low-latency systems and high-throughput
+  heterogeneous computing workflows that enable discovery from the world's biggest colliders to the cosmos.
 news_byline: >
-  It's official! The registration and call for abstracts for the [2022 workshop](https://indico.cern.ch/event/1156222/) is now open.  It will be a hybrid workshop hosted by Southern Methodist University from Oct 3 -- Oct 6, 2022.
-  To see past editions, visit our [virtual 2020 workshop](https://indico.cern.ch/event/924283/) and [2019 workshop](https://indico.cern.ch/event/822126/) webpages.
+  We share upcoming and recent events for the community.
 
 collaboration:
-  byline: We are a community that fosters knowledge transfer of accelerated and real-time artificial intelligence applications to fundamental science. By joining the community, you agree to abide by our codes of conduct and policies of collaboration.
+  byline: We are a community that fosters knowledge transfer of accelerated and real-time artificial intelligence for fundamental science. By participating, you agree to abide by our code of conduct and collaboration policies.
 
 navbar:
   logo: /images/fml.png
   links:
-    - name: Home
-      link: "#home" # Note that for links to autoscroll to anchors on the main page, only the #anchor is needed (no preceding slash)
+    - name: About
+      link: "#about" # Note that for links to autoscroll to anchors on the main page, only the #anchor is needed (no preceding slash)
       autoscroll: true
-    - name: News
-      link: "#news"
-      autoscroll: true
-    - name: Papers/Talks
-      link: "#projects"
-      autoscroll: true
-    - name: People
-      link: "#people"
+    - name: Events
+      link: "#events"
       autoscroll: true
     - name: Collaboration
       link: "#collaboration"
+      autoscroll: true
+    - name: Resources
+      link: "#resources"
       autoscroll: true
     - name: Sponsors/Partners
       link: "#sponsors"

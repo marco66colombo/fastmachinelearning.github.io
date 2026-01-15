@@ -7,7 +7,7 @@ title: Home
 <body class="bg-light" data-bs-spy="scroll" data-bs-target="#navbar-global">
     {% include nav.html %}
     <div class="bg-dark container-fluid">
-        <div class="container col-xxl-8 px-4 py-5 " id="home">
+        <div class="container col-xxl-8 px-4 py-5 " id="about">
             <div class="row flex-lg-row-reverse align-items-center justify-content-center g-5 py-5">
                 <div class="col-8 col-sm-8 col-lg-6">
                     <img src="{{ site.baseurl }}/images/fml2.png" class="d-block mx-lg-auto img-fluid" alt="Test" width="350" height="250"
@@ -23,8 +23,8 @@ title: Home
         </div>
     </div>
     <div class="bg-light container-fluid">
-        <div class="px-4 my-5 " id="news">
-            <h1 class="display-5 fw-bold text-center">News</h1>
+        <div class="px-4 my-5 " id="events">
+            <h1 class="display-5 fw-bold text-center">Events</h1>
             <div class="col-lg-6 mx-auto text-center">
                 <p class="lead mb-4">{{ site.news_byline | markdownify }}</p>
             </div>
@@ -59,63 +59,6 @@ title: Home
 
 
     <div class="bg-primary container-fluid">
-        <div class="px-4 pt-5 my-5 text-center text-light" id="projects">
-            <h1 class="display-5 fw-bold">Papers</h1>
-            <div class="col-lg-8 text-start mx-auto">
-                <ul class="citation-list">
-                    {% for paper in site.data.papers %}
-                    <li class="citation-list-item lead"> {{ paper | markdownify }} </li>
-                    {% endfor %}
-                </ul>
-            </div>
-        </div>
-        <div class="px-4 pt-2 pb-5 my-5 text-center text-light">
-            <h1 class="display-5 fw-bold">Talks</h1>
-            <div class="col-lg-8 text-start mx-auto">
-                <ul class="citation-list">
-                    {% for talk in site.data.talks %}
-                    <li class="citation-list-item lead"> {{ talk | markdownify }} </li>
-                    {% endfor %}
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="bg-light container-fluid">
-        <div class="px-4 py-5 my-5 text-center" id="people">
-            <h1 class="display-5 fw-bold pb-5">People</h1>
-            <div class="col-lg-6 mx-auto">
-                <hr>
-                {% assign sorted_orgs = site.data.people | sort %}
-                {% for org in sorted_orgs %}
-                <h4> {{ org[0] | replace: '_', ' ' | upcase }} </h4>
-                {% assign sorted_people = org[1] | sort %}
-                {% for person in sorted_people %}
-                <a href="javascript:showhide('{{ org[0] | replace: ' ', '_' }}-{{ person[0] | replace: ' ', '_' }}')">
-                    {{ person[1].name }}</a>
-                    ({% if person[1].degree != "" and person[1].degree != null %}{{person[1].degree }},
-                {% endif %}
-                {{ person[1].field }});&nbsp;
-                {% endfor %}
-
-                {% for person in sorted_people %}
-                <div id="{{ org[0] | replace: ' ', '_' }}-{{ person[0] | replace: ' ', '_' }}" style="display:none;">
-                    <br>
-                    <ul>
-                        <li> <b>Position</b>: {{ person[1].position }} </li>
-                        <li> <b>Interests</b>: {{ person[1].interests }} </li>
-                    </ul>
-                    {% if person[1].image != "" and person[1].image != null %}
-                    <a href="{{ person[1].image }}" class="image image-centered"><img src="{{ person[1].image }}"
-                            height="300" alt="" /></a>
-                    {% endif %}
-                </div>
-                {% endfor %}
-                <hr>
-                {% endfor %}
-            </div>
-        </div>
-    </div>
-    <div class="bg-primary container-fluid">
         <div class="px-4 py-5 my-5 text-center text-light" id="collaboration">
             <h1 class="display-5 fw-bold">Collaboration</h1>
             <div class="col-lg-6 mx-auto">
@@ -123,6 +66,18 @@ title: Home
                 <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
                     <a href="{{ site.baseurl }}/collaboration.html" class="btn btn-primary btn-lg px-4 gap-3">Code of Conduct</a>
                 </div>
+            </div>
+        </div>
+    </div>
+    <div class="bg-light container-fluid">
+        <div class="px-4 py-5 my-5 text-center" id="resources">
+            <h1 class="pb-4 display-5 fw-bold">Resources</h1>
+            <div class="col-lg-6 mx-auto">
+                <ul class="list-group list-group-flush">
+                    {% for resource in site.footer.links %}
+                    <li class="list-group-item"><a href="{{ resource.link }}">{{ resource.name }}</a></li>
+                    {% endfor %}
+                </ul>
             </div>
         </div>
     </div>
