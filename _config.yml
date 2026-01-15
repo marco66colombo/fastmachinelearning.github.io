@@ -4,10 +4,11 @@ email: fml@fastmachinelearning.org
 
 one_liner: A non-profit foundation advancing real-time and accelerated ML for fundamental sciences
 description: >
-  Fast Machine Learning Foundation is a non-profit created to develop tools and training for machine learning
-  algorithms in unique and challenging scientific applications. We bring together physicists, engineers, and
-  computer scientists to build and deploy real-time, on-detector, low-latency systems and high-throughput
-  heterogeneous computing workflows that enable discovery from the world's biggest colliders to the cosmos.
+  The purpose of the Foundation is to cultivate resources in support of the multi-disciplinary Fast ML for
+  Science community of domain science, machine learning and engineering researchers for the advancement of
+  accelerated and autonomous scientific experimentation. These resources will be used to share, support, and
+  maintain the community’s shared research, software tools, and hardware platforms for scientific applications
+  with the highest standards of inclusiveness, openness, accountability, and transparency.
 news_byline: >
   We share upcoming and recent events for the community.
 
