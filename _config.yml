@@ -23,15 +23,18 @@ navbar:
     - name: Events
       link: "#events"
       autoscroll: true
-    - name: Collaboration
-      link: "#collaboration"
-      autoscroll: true
     - name: Resources
       link: "#resources"
+      autoscroll: true
+    - name: Collaboration
+      link: "#collaboration"
       autoscroll: true
     - name: Sponsors/Partners
       link: "#sponsors"
       autoscroll: true
+    - name: Governance
+      link: "/governance.html"
+      autoscroll: false
     - name: Contact
       link: "mailto:fml@fastmachinelearning.org"
       autoscroll: false

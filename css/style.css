@@ -26,3 +26,265 @@
 .citation-list-item a{
     color: var(--medium-grey);
 }
+
+.logo-marquee {
+    overflow: hidden;
+    border-top: 1px solid var(--light-grey);
+    border-bottom: 1px solid var(--light-grey);
+    padding: 16px 0;
+    margin: 0 auto 24px;
+    max-width: 1100px;
+}
+
+.logo-marquee__track {
+    display: flex;
+    align-items: center;
+    width: max-content;
+    animation: logo-marquee 20s linear infinite;
+    will-change: transform;
+}
+
+.logo-marquee__group {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    padding-right: 40px;
+}
+
+.logo-marquee__item {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-marquee__item img {
+    max-height: 72px;
+    max-width: 180px;
+    width: auto;
+    height: auto;
+}
+
+@keyframes logo-marquee {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .logo-marquee {
+        overflow-x: auto;
+    }
+
+    .logo-marquee__track {
+        animation: none;
+    }
+}
+
+.governance-page {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.governance-header {
+    max-width: 720px;
+    margin: 0 auto 40px;
+}
+
+.governance-section {
+    margin-bottom: 40px;
+}
+
+.section-title {
+    margin-bottom: 16px;
+}
+
+.leadership-grid {
+    display: grid;
+    gap: 16px;
+}
+
+.leadership-card {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    padding: 16px;
+    border-radius: 12px;
+    background: #f8f8f8;
+    border: 1px solid #e6e6e6;
+}
+
+.leadership-avatar {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: var(--charcoal);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    flex: 0 0 auto;
+    overflow: hidden;
+}
+
+.leadership-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.leadership-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.leadership-name {
+    font-weight: 700;
+    font-size: 1.08rem;
+}
+
+.leadership-role {
+    color: var(--charcoal);
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.leadership-inst {
+    color: var(--medium-grey);
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.leadership-email {
+    color: #6a6a6a;
+    font-size: 0.92rem;
+    text-decoration: none;
+}
+
+.leadership-email:hover {
+    text-decoration: underline;
+}
+
+.advisory-grid {
+    display: grid;
+    gap: 12px;
+}
+
+.advisory-grid--wide {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+.advisory-card {
+    padding: 14px 18px;
+    border-radius: 10px;
+    border: 1px solid #ffffff;
+    background: #ffffff;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04);
+}
+
+.advisory-row {
+    display: grid;
+    gap: 6px;
+}
+
+.advisory-name {
+    font-weight: 700;
+    font-size: 0.98rem;
+}
+
+.advisory-details {
+    display: grid;
+    gap: 4px;
+}
+
+.advisory-inst {
+    color: #333333;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.advisory-email {
+    display: inline-block;
+    color: #5a5a5a;
+    font-size: 0.85rem;
+    text-decoration: none;
+}
+
+.advisory-email:hover {
+    text-decoration: underline;
+}
+
+.collab-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 16px auto 0;
+    column-gap: 32px;
+    columns: 2;
+    text-align: left;
+}
+
+.collab-list--spaced {
+    margin-top: 24px;
+}
+
+.collab-block {
+    margin-top: 32px;
+}
+
+.resources-list {
+    border-top: 1px solid var(--light-grey);
+    border-bottom: 1px solid var(--light-grey);
+}
+
+.resources-item {
+    padding: 12px 0;
+    background: transparent;
+}
+
+.resources-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--charcoal);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.resources-link::after {
+    content: "→";
+    font-weight: 600;
+    color: var(--medium-grey);
+}
+
+.resources-link:hover {
+    color: #000000;
+}
+
+.collab-list li {
+    break-inside: avoid;
+    padding: 4px 0;
+}
+
+@media (min-width: 720px) {
+    .leadership-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (min-width: 900px) {
+    .advisory-grid--wide {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .collab-list {
+        columns: 1;
+    }
+}

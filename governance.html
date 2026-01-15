@@ -1,0 +1,72 @@
+---
+title: Governance
+---
+
+{% include head.html %}
+
+<body class="bg-light">
+    {% include nav.html %}
+    <div class="bg-light container-fluid">
+        <div class="px-4 py-5 my-5 governance-page">
+            <div class="governance-header text-center">
+                <h1 class="display-5 fw-bold">Governance</h1>
+                <p class="lead">Leadership and advisory groups guiding the Foundation's mission and programs.</p>
+                <p class="text-muted governance-disclaimer">This is a public staging version of the website and may contain incomplete or provisional information.</p>
+            </div>
+
+            <section class="governance-section">
+                <div class="section-title">
+                    <h2 class="h4 fw-bold">Board of Directors</h2>
+                    <p class="text-muted">Executive leadership.</p>
+                </div>
+                <div class="leadership-grid">
+                    {% for member in site.data.board %}
+                    {% assign name_parts = member.name | split: ' ' %}
+                    {% assign first_initial = name_parts[0] | slice: 0 %}
+                    {% assign second_initial = name_parts[1] | slice: 0 %}
+                    <div class="leadership-card">
+                        <div class="leadership-avatar">
+                            {% if member.image %}
+                            <img src="{{ member.image }}" alt="{{ member.name }}" />
+                            {% else %}
+                            <span>{{ first_initial }}{{ second_initial }}</span>
+                            {% endif %}
+                        </div>
+                        <div class="leadership-meta">
+                            <div class="leadership-name">{{ member.name }}</div>
+                            <div class="leadership-role">{{ member.role }}</div>
+                            <div class="leadership-inst">{{ member.institution }}</div>
+                            {% if member.email and member.email != "" %}
+                            <a class="leadership-email" href="mailto:{{ member.email }}">{{ member.email }}</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </section>
+
+            <section class="governance-section">
+                <div class="section-title">
+                    <h2 class="h4 fw-bold">Advisory Council</h2>
+                    <p class="text-muted">Representatives from collaborating institutes.</p>
+                </div>
+                <div class="advisory-grid advisory-grid--wide">
+                    {% for entry in site.data.advisory_council %}
+                    <div class="advisory-card">
+                        <div class="advisory-row">
+                            <div class="advisory-name">{{ entry.name }}</div>
+                            <div class="advisory-details">
+                                <div class="advisory-inst">{{ entry.institution }}</div>
+                                {% if entry.email and entry.email != "" %}
+                                <a class="advisory-email" href="mailto:{{ entry.email }}">{{ entry.email }}</a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </section>
+        </div>
+    </div>
+    {% include footer.html %}
+</body>

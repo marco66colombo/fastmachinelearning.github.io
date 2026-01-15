@@ -28,9 +28,13 @@ title: Home
             <div class="col-lg-6 mx-auto text-center">
                 <p class="lead mb-4">{{ site.news_byline | markdownify }}</p>
             </div>
-            <div class="col-lg-5 mx-auto ">
+        </div>
+    </div>
+    <div class="bg-light container-fluid">
+        <div class="px-4 py-5 my-5 text-center" id="resources">
+            <h1 class="pb-4 display-5 fw-bold">Resources</h1>
+            <div class="col-lg-5 mx-auto">
                 {% for post in site.posts %}
-
                 <div class="row">
                     <div class="card m-2 post-preview">
                         <div class="row g-0">
@@ -47,17 +51,12 @@ title: Home
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
-
                 {% endfor %}
             </div>
         </div>
     </div>
-
-
-
     <div class="bg-primary container-fluid">
         <div class="px-4 py-5 my-5 text-center text-light" id="collaboration">
             <h1 class="display-5 fw-bold">Collaboration</h1>
@@ -66,18 +65,18 @@ title: Home
                 <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
                     <a href="{{ site.baseurl }}/collaboration.html" class="btn btn-primary btn-lg px-4 gap-3">Code of Conduct</a>
                 </div>
-            </div>
-        </div>
-    </div>
-    <div class="bg-light container-fluid">
-        <div class="px-4 py-5 my-5 text-center" id="resources">
-            <h1 class="pb-4 display-5 fw-bold">Resources</h1>
-            <div class="col-lg-6 mx-auto">
-                <ul class="list-group list-group-flush">
-                    {% for resource in site.footer.links %}
-                    <li class="list-group-item"><a href="{{ resource.link }}">{{ resource.name }}</a></li>
-                    {% endfor %}
-                </ul>
+                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mt-3">
+                    <a href="{{ site.baseurl }}/governance.html" class="btn btn-primary btn-lg px-4 gap-3">Governance &amp; Leadership</a>
+                </div>
+                <div class="pt-4 collab-block">
+                    <h2 class="h3 fw-bold text-center">Collaborating Institutes</h2>
+                    {% assign institutions = site.data.advisory_council | map: "institution" | uniq | sort %}
+                    <ul class="collab-list collab-list--spaced">
+                        {% for institution in institutions %}
+                        <li>{{ institution }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
