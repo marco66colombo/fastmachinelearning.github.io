@@ -14,8 +14,12 @@
 				<li class="nav-item">
 					{% if page.title != 'Home' && navitem.autoscroll %}
 					<a class="nav-link" href="{{ site.baseurl }}/{{ navitem.link }}">{{ navitem.name }}</a>
-					{% else %}
+					{% elsif navitem.autoscroll %}
 					<a class="nav-link" href="{{ navitem.link }}">{{ navitem.name }}</a>
+					{% elsif navitem.link contains '://' or navitem.link contains 'mailto:' %}
+					<a class="nav-link" href="{{ navitem.link }}">{{ navitem.name }}</a>
+					{% else %}
+					<a class="nav-link" href="{{ site.baseurl }}{{ navitem.link }}">{{ navitem.name }}</a>
 					{% endif %}
 				</li>
 				{% endfor %}
