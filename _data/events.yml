@@ -1,0 +1,44 @@
+# Past FastML conferences shown in the Events section.
+# Add entries using the format below:
+#
+# - title: "FastML Conference 2025"
+#   date: "Sep 1-5, 2025"
+#   location: "ETH Zurich"
+#   image: "/images/your-poster-file.png"
+#   external_link: "https://conference-url.example"
+
+- title: "Fast Machine Learning for Science Conference 2025"
+  date: "Sep 1-5, 2025"
+  location: "ETH Zurich"
+  image: "/images/fastml_poster_2025.png"
+  external_link: "https://indico.cern.ch/event/1496673/"
+
+- title: "Fast Machine Learning for Science Conference 2024"
+  date: "Oct 15-18, 2024"
+  location: "Purdue University"
+  image: "/images/fastml_poster_2024.png"
+  external_link: "https://indico.cern.ch/event/1387540/"
+
+- title: "Fast Machine Learning for Science Workshop 2023"
+  date: "Sep 25-28, 2023"
+  location: "Imperial College London"
+  image: "/images/fastml_poster_2023.png"
+  external_link: "https://indico.cern.ch/event/1283970/"
+
+- title: "Fast Machine Learning for Science Workshop 2022"
+  date: "Oct 3-6, 2022"
+  location: "Southern Methodist University"
+  image: "/images/fastml_poster_2022.png"
+  external_link: "https://indico.cern.ch/event/1156222/"
+
+- title: "Fast Machine Learning Workshop 2020"
+  date: "Nov 30-Dec 3, 2020"
+  location: "Virtual, hosted by Southern Methodist University"
+  image: "/images/fastml_poster_2020.png"
+  external_link: "https://indico.cern.ch/event/924283/"
+
+- title: "Fast Machine Learning Workshop 2019"
+  date: "Sep 10-13, 2019"
+  location: "Fermi National Accelerator Laboratory"
+  image: "/images/fastml_poster_2019.png"
+  external_link: "https://indico.cern.ch/event/822126/"
