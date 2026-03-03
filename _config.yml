@@ -1,6 +1,7 @@
 title: Fast Machine Learning Foundation
 short_title: FastML Foundation
 email: fml@fastmachinelearning.org
+contact_mailto: "mailto:pcharris@mit.edu,thea.aarrestad@cern.ch,a.tapper@imperial.ac.uk,jduarte@physics.ucsd.edu,ntran@fnal.gov"
 
 one_liner: A non-profit foundation advancing real-time and accelerated ML for fundamental sciences
 description: >
@@ -40,7 +41,7 @@ navbar:
       link: "/governance.html"
       autoscroll: false
     - name: Contact
-      link: "mailto:fml@fastmachinelearning.org"
+      link: "mailto:pcharris@mit.edu,thea.aarrestad@cern.ch,a.tapper@imperial.ac.uk,jduarte@physics.ucsd.edu,ntran@fnal.gov"
       autoscroll: false
 
 footer:
