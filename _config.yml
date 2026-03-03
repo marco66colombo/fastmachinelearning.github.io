@@ -34,12 +34,12 @@ navbar:
     - name: Collaboration
       link: "#collaboration"
       autoscroll: true
-    - name: Sponsors/Partners
-      link: "#sponsors"
-      autoscroll: true
     - name: Governance
       link: "/governance.html"
       autoscroll: false
+    - name: Sponsors/Partners
+      link: "#sponsors"
+      autoscroll: true
     - name: Contact
       link: "mailto:pcharris@mit.edu,thea.aarrestad@cern.ch,a.tapper@imperial.ac.uk,jduarte@physics.ucsd.edu,ntran@fnal.gov"
       autoscroll: false
