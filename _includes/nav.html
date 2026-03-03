@@ -12,21 +12,19 @@
 			<ul class="navbar-nav">
 				{% for navitem in site.navbar.links %}
 				<li class="nav-item">
-					{% assign is_mailto = navitem.link contains 'mailto:' %}
-					{% assign is_external = navitem.link contains '://' %}
-					{% assign is_absolute_internal = navitem.link | slice: 0, 1 %}
-					{% if navitem.autoscroll %}
+					{% assign first_char = navitem.link | slice: 0, 1 %}
+					{% if first_char == '#' %}
 					{% if page.title != 'Home' %}
-					<a class="nav-link" href="{{ site.baseurl }}/{{ navitem.link }}">{{ navitem.name }}</a>
+					<a class="nav-link" href="{{ '/' | append: navitem.link | relative_url }}">{{ navitem.name }}</a>
 					{% else %}
 					<a class="nav-link" href="{{ navitem.link }}">{{ navitem.name }}</a>
 					{% endif %}
-					{% elsif is_mailto or is_external %}
+					{% elsif navitem.link contains 'mailto:' or navitem.link contains '://' %}
 					<a class="nav-link" href="{{ navitem.link }}">{{ navitem.name }}</a>
-					{% elsif is_absolute_internal == '/' %}
-					<a class="nav-link" href="{{ navitem.link | relative_url }}">{{ navitem.name }}</a>
+					{% elsif first_char == '/' %}
+					<a class="nav-link" href="{{ site.baseurl }}{{ navitem.link }}">{{ navitem.name }}</a>
 					{% else %}
-					<a class="nav-link" href="{{ navitem.link }}">{{ navitem.name }}</a>
+					<a class="nav-link" href="{{ site.baseurl }}/{{ navitem.link }}">{{ navitem.name }}</a>
 					{% endif %}
 				</li>
 				{% endfor %}
