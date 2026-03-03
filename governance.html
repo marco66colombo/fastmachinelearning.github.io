@@ -27,7 +27,7 @@ title: Governance
                     <div class="leadership-card">
                         <div class="leadership-avatar">
                             {% if member.image %}
-                            <img src="{{ member.image }}" alt="{{ member.name }}" />
+                            <img src="{{ site.baseurl }}{{ member.image }}" alt="{{ member.name }}" />
                             {% else %}
                             <span>{{ first_initial }}{{ second_initial }}</span>
                             {% endif %}
