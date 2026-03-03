@@ -7,7 +7,7 @@ title: Home
 <body class="bg-light" data-bs-spy="scroll" data-bs-target="#navbar-global">
     {% include nav.html %}
     <div class="bg-dark container-fluid">
-        <div class="container col-xxl-8 px-4 py-5 " id="about">
+        <div class="container col-xxl-8 px-4 my-5" id="about">
             <div class="row flex-lg-row-reverse align-items-center justify-content-center g-5 py-5">
                 <div class="col-8 col-sm-8 col-lg-6">
                     <img src="{{ site.baseurl }}/images/fastml_logo.png" class="d-block mx-lg-auto img-fluid" alt="Test" width="350" height="250"
@@ -73,10 +73,18 @@ title: Home
         </div>
     </div>
     <div class="bg-light container-fluid">
-        <div class="px-4 py-5 my-5 text-center" id="resources">
-            <h1 class="pb-4 display-5 fw-bold">Resources</h1>
+        <div class="px-4 my-5 text-center" id="news">
+            <h1 class="pb-4 display-5 fw-bold">News</h1>
+            <div class="col-lg-6 mx-auto text-center">
+                <p class="lead mb-4">Latest updates from the FastML community.</p>
+            </div>
             <div class="col-lg-5 mx-auto">
                 {% for post in site.posts %}
+                {% assign is_resource_post = false %}
+                {% if post.external_link == "https://fastmachinelearning.org/hls4ml/" or post.external_link == "https://fastmachinelearning.org/SuperSONIC/" %}
+                {% assign is_resource_post = true %}
+                {% endif %}
+                {% unless is_resource_post %}
                 <div class="row">
                     <div class="card m-2 post-preview">
                         <div class="row g-0">
@@ -95,12 +103,47 @@ title: Home
                         </div>
                     </div>
                 </div>
+                {% endunless %}
                 {% endfor %}
             </div>
         </div>
     </div>
-    <div class="bg-primary container-fluid">
-        <div class="px-4 py-5 my-5 text-center text-light" id="collaboration">
+    <div class="bg-light container-fluid">
+        <div class="px-4 my-5 text-center" id="resources">
+            <h1 class="pb-4 display-5 fw-bold">Resources</h1>
+            <div class="col-lg-6 mx-auto text-center">
+                <p class="lead mb-4">Core projects and platforms from the FastML ecosystem.</p>
+            </div>
+            <div class="col-lg-5 mx-auto">
+                {% if site.data.resources and site.data.resources.size > 0 %}
+                {% for resource in site.data.resources %}
+                <div class="row">
+                    <div class="card m-2 post-preview">
+                        <div class="row g-0">
+                            <div class="col-md-4 d-flex align-items-center">
+                                <img src="{{ site.baseurl }}{{ resource.image }}" class="img-fluid rounded-start" alt="{{ resource.title }}"
+                                    style="max-width: 100%; max-height: 120px; width: auto; margin: 0 auto;">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h4 class="card-title text-center">{{ resource.title }}</h4>
+                                    <p class="card-text">{{ resource.description }}</p>
+                                    <div class="d-flex justify-content-center"><a href="{{ resource.external_link }}"
+                                            class="btn btn-primary">View Details</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                {% else %}
+                <p class="text-center text-muted">Resource links will be added soon.</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <div class="bg-primary container-fluid" id="collaboration">
+        <div class="px-4 my-5 pt-5 text-center text-light">
             <h1 class="display-5 fw-bold">Collaboration</h1>
             <div class="col-lg-6 mx-auto">
                 <p class="lead mb-4">{{site.collaboration.byline}}</p>
@@ -123,7 +166,7 @@ title: Home
         </div>
     </div>
     <div class="bg-light container-fluid">
-        <div class="px-4 py-5 my-5 text-center" id="sponsors">
+        <div class="px-4 my-5 text-center" id="sponsors">
             <h1 class="pb-4 display-5 fw-bold">Sponsors and Partners</h1>
             <div class="col-lg-6 mx-auto text-center">
                 <p class="lead mb-4">We are graciously funded by the following organizations:</p>

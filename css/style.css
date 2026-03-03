@@ -3,6 +3,28 @@
     --almost-black: #040404;
     --light-grey: #e0e0e0;
     --medium-grey: #afafaf;
+    --navbar-offset: 64px;
+}
+
+/* Keep section titles visible below the fixed navbar when using anchor links. */
+#about,
+#news,
+#events,
+#resources,
+#collaboration,
+#sponsors {
+    scroll-margin-top: var(--navbar-offset);
+}
+
+/* Collaboration anchors to a dark section boundary; avoid showing the white section above. */
+#collaboration {
+    scroll-margin-top: 0;
+}
+
+@media (max-width: 991.98px) {
+    :root {
+        --navbar-offset: 72px;
+    }
 }
 
 

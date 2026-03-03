@@ -21,6 +21,9 @@ navbar:
     - name: About
       link: "#about" # Note that for links to autoscroll to anchors on the main page, only the #anchor is needed (no preceding slash)
       autoscroll: true
+    - name: News
+      link: "#news"
+      autoscroll: true
     - name: Events
       link: "#events"
       autoscroll: true
