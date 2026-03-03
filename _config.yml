@@ -16,7 +16,7 @@ collaboration:
   byline: We are a community that fosters knowledge transfer of accelerated and real-time artificial intelligence for fundamental science. By participating, you agree to abide by our code of conduct and collaboration policies.
 
 navbar:
-  logo: /images/fml.png
+  logo: /images/fastml_logo.png
   links:
     - name: About
       link: "#about" # Note that for links to autoscroll to anchors on the main page, only the #anchor is needed (no preceding slash)
