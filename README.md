@@ -1,5 +1,5 @@
-# Fast ML Lab Website Insructions
-This website is built on Github Pages using Jekyll, and thus, editing raw HTML should be unneccessary for most content updates.
+# Fast ML Lab Website Instructions
+This website is built on GitHub Pages using Jekyll, and thus, editing raw HTML should be unnecessary for most content updates.
 
 ## Add a News Item
 
@@ -14,7 +14,7 @@ description: 'hls4ml: an open-source code framework for translating machine lear
 image: /images/hls4ml.png
 ---
 ```
- Note that file paths for images should include a leading `/` to indicate an absolute path from the root of the site. Putting quotes around the title/description (single or double) is reccomended to avoid issues with yaml parsing. You can also add markdown content following this header and it will render as a complete web page, but as of yet there is no link to this post displayed on the front page, only content from the header. This may change in the future.
+ Note that file paths for images should include a leading `/` to indicate an absolute path from the root of the site. Putting quotes around the title/description (single or double) is recommended to avoid issues with yaml parsing. You can also add markdown content following this header and it will render as a complete web page, but as of yet there is no link to this post displayed on the front page, only content from the header. This may change in the future.
 
 
 ## Add a Person
@@ -33,7 +33,7 @@ Note that the Jekyll site is set up to generate and alphabetize the institution 
 ## Add a Paper
 Add papers to the yaml list in `_data/papers.yml`
 
-Note that this will render markdown syntax. Putting quotes around the title (single or double) is reccomended to avoid issues with yaml parsing.
+Note that this will render markdown syntax. Putting quotes around the title (single or double) is recommended to avoid issues with yaml parsing.
 
 **Example:**
 ```yaml
@@ -43,7 +43,7 @@ Note that this will render markdown syntax. Putting quotes around the title (sin
 ## Add a Talk
 Add talks to the yaml list in `_data/talks.yml`
 
-Note that this will render markdown syntax. Putting quotes around the title (single or double) is reccomended to avoid issues with yaml parsing.
+Note that this will render markdown syntax. Putting quotes around the title (single or double) is recommended to avoid issues with yaml parsing.
 
 **Example:**
 ```yaml
