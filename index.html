@@ -23,6 +23,42 @@ title: Home
         </div>
     </div>
     <div class="bg-light container-fluid">
+        <div class="px-4 my-5 text-center" id="news">
+            <h1 class="pb-4 display-5 fw-bold">News</h1>
+            <div class="col-lg-6 mx-auto text-center">
+                <p class="lead mb-4">Latest updates from the FastML community.</p>
+            </div>
+            <div class="col-lg-5 mx-auto">
+                {% for post in site.posts %}
+                {% assign is_resource_post = false %}
+                {% if post.external_link == "https://fastmachinelearning.org/hls4ml/" or post.external_link == "https://fastmachinelearning.org/SuperSONIC/" %}
+                {% assign is_resource_post = true %}
+                {% endif %}
+                {% unless is_resource_post %}
+                <div class="row">
+                    <div class="card m-2 post-preview">
+                        <div class="row g-0">
+                            <div class="col-md-4 d-flex align-items-center">
+                                <img src="{{ site.baseurl }}{{ post.image }}" class="img-fluid rounded-start" alt="{{post.title}}"
+                                    style="max-width: 100%;">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h4 class="card-title text-center">{{post.title}}</h4>
+                                    <p class="card-text">{{post.description}}</p>
+                                    <div class="d-flex justify-content-center"><a href="{{post.external_link}}"
+                                            class="btn btn-primary">View Details</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endunless %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="bg-light container-fluid">
         <div class="px-4 my-5 " id="events">
             <h1 class="display-5 fw-bold text-center">Events</h1>
             <div class="col-lg-6 mx-auto text-center">
@@ -69,42 +105,6 @@ title: Home
                 {% else %}
                 <p class="text-center text-muted">Past FastML conference highlights will be added soon.</p>
                 {% endif %}
-            </div>
-        </div>
-    </div>
-    <div class="bg-light container-fluid">
-        <div class="px-4 my-5 text-center" id="news">
-            <h1 class="pb-4 display-5 fw-bold">News</h1>
-            <div class="col-lg-6 mx-auto text-center">
-                <p class="lead mb-4">Latest updates from the FastML community.</p>
-            </div>
-            <div class="col-lg-5 mx-auto">
-                {% for post in site.posts %}
-                {% assign is_resource_post = false %}
-                {% if post.external_link == "https://fastmachinelearning.org/hls4ml/" or post.external_link == "https://fastmachinelearning.org/SuperSONIC/" %}
-                {% assign is_resource_post = true %}
-                {% endif %}
-                {% unless is_resource_post %}
-                <div class="row">
-                    <div class="card m-2 post-preview">
-                        <div class="row g-0">
-                            <div class="col-md-4 d-flex align-items-center">
-                                <img src="{{ site.baseurl }}{{ post.image }}" class="img-fluid rounded-start" alt="{{post.title}}"
-                                    style="max-width: 100%;">
-                            </div>
-                            <div class="col-md-8">
-                                <div class="card-body">
-                                    <h4 class="card-title text-center">{{post.title}}</h4>
-                                    <p class="card-text">{{post.description}}</p>
-                                    <div class="d-flex justify-content-center"><a href="{{post.external_link}}"
-                                            class="btn btn-primary">View Details</a></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                {% endunless %}
-                {% endfor %}
             </div>
         </div>
     </div>
