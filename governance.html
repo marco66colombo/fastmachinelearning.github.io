@@ -36,9 +36,6 @@ title: Governance
                             <div class="leadership-name">{{ member.name }}</div>
                             <div class="leadership-role">{{ member.role }}</div>
                             <div class="leadership-inst">{{ member.institution }}</div>
-                            {% if member.email and member.email != "" %}
-                            <a class="leadership-email" href="mailto:{{ member.email }}">{{ member.email }}</a>
-                            {% endif %}
                         </div>
                     </div>
                     {% endfor %}
@@ -57,9 +54,6 @@ title: Governance
                             <div class="advisory-name">{{ entry.name }}</div>
                             <div class="advisory-details">
                                 <div class="advisory-inst">{{ entry.institution }}</div>
-                                {% if entry.email and entry.email != "" %}
-                                <a class="advisory-email" href="mailto:{{ entry.email }}">{{ entry.email }}</a>
-                                {% endif %}
                             </div>
                         </div>
                     </div>
