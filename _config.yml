@@ -35,8 +35,8 @@ navbar:
       link: "#collaboration"
       autoscroll: true
     - name: Governance
-      link: "/governance.html"
-      autoscroll: false
+      link: "#governance"
+      autoscroll: true
     - name: Sponsors/Partners
       link: "#sponsors"
       autoscroll: true
