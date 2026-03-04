@@ -17,19 +17,6 @@
     scroll-margin-top: var(--navbar-offset);
 }
 
-/* Collaboration anchors to a dark section boundary; avoid showing the white section above. */
-#collaboration {
-    scroll-margin-top: 0;
-}
-
-@media (max-width: 991.98px) {
-    :root {
-        --navbar-offset: 72px;
-    }
-}
-
-
-
 .bg-primary {
     background-color: var(--charcoal) !important;
 }

@@ -4,7 +4,7 @@ title: Home
 
 {% include head.html %}
 
-<body class="bg-light" data-bs-spy="scroll" data-bs-target="#navbar-global">
+<body class="bg-light" data-bs-spy="scroll" data-bs-target="#navbar-global" tabindex="0">
     {% include nav.html %}
     <div class="bg-dark container-fluid">
         <div class="container col-xxl-8 px-4 my-5" id="about">
@@ -142,8 +142,8 @@ title: Home
             </div>
         </div>
     </div>
-    <div class="bg-primary container-fluid" id="collaboration">
-        <div class="px-4 my-5 pt-5 pb-5 text-center text-light">
+    <div class="bg-primary container-fluid pt-4">
+        <div class="px-4 py-5 text-center text-light" id="collaboration">
             <h1 class="display-5 fw-bold">Collaboration</h1>
             <div class="col-lg-6 mx-auto">
                 <p class="lead mb-4">{{site.collaboration.byline}}</p>
