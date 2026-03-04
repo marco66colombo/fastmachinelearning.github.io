@@ -248,6 +248,27 @@ title: Home
     </div>
     {% include footer.html %}
     <script>
+        function setupScrollSpy() {
+            var navbar = document.getElementById('navbar-global');
+            if (!navbar || !window.bootstrap || !window.bootstrap.ScrollSpy) {
+                return;
+            }
 
+            var offset = Math.ceil(navbar.getBoundingClientRect().height) + 8;
+            document.documentElement.style.setProperty('--navbar-offset', offset + 'px');
+
+            var existing = bootstrap.ScrollSpy.getInstance(document.body);
+            if (existing) {
+                existing.dispose();
+            }
+
+            new bootstrap.ScrollSpy(document.body, {
+                target: '#navbar-global',
+                offset: offset
+            });
+        }
+
+        window.addEventListener('load', setupScrollSpy);
+        window.addEventListener('resize', setupScrollSpy);
     </script>
 </body>
