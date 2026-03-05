@@ -1,0 +1,14 @@
+- title: "hls4ml"
+  description: "Open-source framework for translating ML algorithms into FPGA firmware."
+  image: "/images/hls4ml.png"
+  external_link: "https://fastmachinelearning.org/hls4ml/"
+
+- title: "SuperSONIC"
+  description: "A research project focused on accelerated real-time scientific ML systems."
+  image: "/images/sonic.png"
+  external_link: "https://fastmachinelearning.org/SuperSONIC/"
+
+- title: "FastML GitHub Repositories"
+  description: "Community software projects, examples, and shared development resources."
+  image: "/images/fastml_logo.png"
+  external_link: "https://github.com/fastmachinelearning"

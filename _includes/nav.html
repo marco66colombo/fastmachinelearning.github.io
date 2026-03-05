@@ -12,15 +12,22 @@
 			<ul class="navbar-nav">
 				{% for navitem in site.navbar.links %}
 				<li class="nav-item">
-					{% if page.title != 'Home' && navitem.autoscroll %}
-					<a class="nav-link" href="{{ site.baseurl }}/{{ navitem.link }}">{{ navitem.name }}</a>
+					{% assign first_char = navitem.link | slice: 0, 1 %}
+					{% if first_char == '#' %}
+					{% if page.title != 'Home' %}
+					<a class="nav-link" href="{{ '/' | append: navitem.link | relative_url }}">{{ navitem.name }}</a>
 					{% else %}
 					<a class="nav-link" href="{{ navitem.link }}">{{ navitem.name }}</a>
 					{% endif %}
+					{% elsif navitem.link contains 'mailto:' or navitem.link contains '://' %}
+					<a class="nav-link" href="{{ navitem.link }}">{{ navitem.name }}</a>
+					{% elsif first_char == '/' %}
+					<a class="nav-link" href="{{ site.baseurl }}{{ navitem.link }}">{{ navitem.name }}</a>
+					{% else %}
+					<a class="nav-link" href="{{ site.baseurl }}/{{ navitem.link }}">{{ navitem.name }}</a>
+					{% endif %}
 				</li>
 				{% endfor %}
-
-				</li>
 			</ul>
 		</div>
 </nav>
