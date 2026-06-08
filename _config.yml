@@ -31,6 +31,12 @@ navbar:
     - name: Resources
       link: "#resources"
       autoscroll: true
+    - name: Applications
+      link: "/applications/"
+      autoscroll: false
+    - name: Tools
+      link: "/tools/"
+      autoscroll: false
     - name: Collaboration
       link: "#collaboration"
       autoscroll: true
@@ -54,3 +60,11 @@ footer:
       link: https://github.com/fastmachinelearning
 
 exclude: ["CNAME", "license.txt", "README.md"]
+
+collections:
+  applications:
+    output: true
+    permalink: /applications/:name/
+  tools:
+    output: true
+    permalink: /tools/:name/

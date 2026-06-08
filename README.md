@@ -16,6 +16,44 @@ image: /images/hls4ml.png
 ```
  Note that file paths for images should include a leading `/` to indicate an absolute path from the root of the site. Putting quotes around the title/description (single or double) is recommended to avoid issues with yaml parsing. You can also add markdown content following this header and it will render as a complete web page, but as of yet there is no link to this post displayed on the front page, only content from the header. This may change in the future.
 
+## Add an Application or Tool Gallery Entry
+
+Application gallery entries live in `_applications/`. Tool gallery entries live in `_tools/`. Each entry is a Markdown file with YAML front matter and a longer writeup below it. Use `layout: gallery-item` so the entry renders with the shared gallery detail page.
+
+The required fields for a future Google Form are title, summary, submitter, and domain. Optional fields include image, image alt text, affiliation, tools used, tags, review status, links, and long-form content. Optional blank fields should not break the website. See `docs/gallery-entry-template.md` for a complete starter template.
+
+Application images should be added to `images/applications/`; tool images should be added to `images/tools/`. Reference image paths with a leading `/`, for example `/images/applications/example.png`.
+
+## Edit Content With Decap CMS
+
+This repo includes a Decap CMS scaffold at `/admin/`. Decap is a Git-backed CMS: it edits Markdown and image files in this repository rather than using a database.
+
+The CMS is configured in `admin/config.yml` for:
+
+- Applications in `_applications/`
+- Tools in `_tools/`
+- News posts in `_posts/`
+
+Required gallery fields are title, summary, submitter, and domain. Optional fields include image, image alt text, affiliation, tools used, tags, links, review status, and body content.
+
+Before using this on production, configure GitHub authentication for Decap and confirm the backend repo/branch in `admin/config.yml`. This testing branch currently targets `marco66colombo/fastmachinelearning.github.io` on `master` through DecapBridge. For production, change `repo`, `branch`, and DecapBridge site settings to the FastML repository.
+
+For GitHub-backed Decap CMS, editors must have write access to the configured repository. GitHub authentication also needs an OAuth/auth service, such as Netlify's GitHub authentication flow or another Decap-compatible OAuth provider. The `/admin/` page and content schemas are scaffolded here, but authentication still needs to be wired before non-local editing will work.
+
+To test Decap locally, run the local backend proxy in one terminal:
+
+```bash
+npx decap-server
+```
+
+Then run the Jekyll site in another terminal:
+
+```bash
+jekyll serve
+```
+
+Open `http://127.0.0.1:4000/admin/`. With `local_backend: true`, Decap can edit files in the local working tree without GitHub authentication.
+
 
 ## Add a Person
 In the file `_data/people/institution_name/lastf.yml` include the following:

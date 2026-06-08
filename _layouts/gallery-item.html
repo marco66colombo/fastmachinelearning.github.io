@@ -1,0 +1,85 @@
+{% include head.html %}
+
+<body class="bg-light">
+    {% include nav.html %}
+    <main class="bg-light container-fluid gallery-detail-page">
+        <article class="container px-4 py-5">
+            {% if page.collection == "applications" %}
+            {% assign gallery_url = "/applications/" %}
+            {% assign gallery_label = "Applications" %}
+            {% elsif page.collection == "tools" %}
+            {% assign gallery_url = "/tools/" %}
+            {% assign gallery_label = "Tools" %}
+            {% endif %}
+
+            {% if gallery_url %}
+            <div class="gallery-back-link">
+                <a href="{{ gallery_url | relative_url }}">Back to {{ gallery_label }}</a>
+            </div>
+            {% endif %}
+
+            {% assign detail_image = page.image | default: "/images/fastml_logo.png" %}
+            {% assign detail_summary = page.summary | default: page.description %}
+            <div class="gallery-detail-header">
+                <div>
+                    <div class="gallery-card__eyebrow">{{ page.domain | default: page.collection }}</div>
+                    <h1 class="display-5 fw-bold">{{ page.title }}</h1>
+                    {% if detail_summary %}
+                    <p class="lead">{{ detail_summary }}</p>
+                    {% endif %}
+                </div>
+                <img src="{{ detail_image | relative_url }}" class="gallery-detail-image" alt="{{ page.image_alt | default: page.title }}">
+            </div>
+
+            <div class="gallery-detail-layout">
+                <aside class="gallery-facts">
+                    {% if page.submitter %}
+                    <div class="gallery-fact">
+                        <div class="gallery-fact__label">Contact</div>
+                        <div>{{ page.submitter }}</div>
+                    </div>
+                    {% endif %}
+                    {% if page.affiliation %}
+                    <div class="gallery-fact">
+                        <div class="gallery-fact__label">Affiliation</div>
+                        <div>{{ page.affiliation }}</div>
+                    </div>
+                    {% endif %}
+                    {% if page.tools_used and page.tools_used.size > 0 %}
+                    <div class="gallery-fact">
+                        <div class="gallery-fact__label">Tools Used</div>
+                        <div>{{ page.tools_used | join: ", " }}</div>
+                    </div>
+                    {% endif %}
+                    {% if page.links and page.links.size > 0 %}
+                    <div class="gallery-fact">
+                        <div class="gallery-fact__label">Links</div>
+                        <ul class="gallery-link-list">
+                            {% for link in page.links %}
+                            {% if link.url and link.label %}
+                            <li><a class="gallery-link" href="{{ link.url }}">{{ link.label }}</a></li>
+                            {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    {% endif %}
+                    {% if page.tags and page.tags.size > 0 %}
+                    <div class="gallery-fact">
+                        <div class="gallery-fact__label">Tags</div>
+                        <div class="tag-list">
+                            {% for tag in page.tags %}
+                            <span class="tag">{{ tag }}</span>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endif %}
+                </aside>
+
+                <div class="gallery-content">
+                    {{ page.content | markdownify }}
+                </div>
+            </div>
+        </article>
+    </main>
+    {% include footer.html %}
+</body>
