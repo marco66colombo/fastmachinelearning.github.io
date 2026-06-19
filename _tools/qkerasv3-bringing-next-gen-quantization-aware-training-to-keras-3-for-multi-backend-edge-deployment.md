@@ -24,7 +24,7 @@ tools_used:
   - QKeras
 tags:
   - Quantization-aware training
-review_status: draft
+review_status: approved
 ---
 Deep learning models are getting smarter, but they are also getting *heavier*. If you’re working in the fastML ecosystem -- trying to deploy cutting-edge neural networks onto edge devices, ASICs, or FPGAs -- you know that floating-point math is a luxury you often can’t afford. 
 
