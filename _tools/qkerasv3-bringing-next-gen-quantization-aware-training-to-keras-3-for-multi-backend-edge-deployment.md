@@ -34,7 +34,7 @@ But as the deep learning world evolved to Keras 3, standard QKeras was left wait
 
 <div class="row justify-content-sm-center">
     <div class="col-sm-10 mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/qkeras-logo.png" title="QKerasV3 Logo" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="/images/tools/qkeras-logo-1400.webp" title="QKerasV3 Logo" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">

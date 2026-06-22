@@ -1,0 +1,4 @@
+{% assign figure_path = include.path | default: "" %}
+{% assign figure_title = include.title | default: "" %}
+{% assign figure_class = include.class | default: "" %}
+<img src="{{ figure_path | relative_url }}" alt="{{ figure_title | escape }}"{% if include.loading %} loading="{{ include.loading | escape }}"{% endif %}{% if figure_class != "" %} class="{{ figure_class | escape }}"{% endif %}>
