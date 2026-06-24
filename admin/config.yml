@@ -3,7 +3,7 @@
 backend:
   name: git-gateway
   repo: fastmachinelearning/fastmachinelearning.github.io
-  branch: main
+  branch: master
   auth_type: pkce
   base_url: https://auth.decapbridge.com
   auth_endpoint: /sites/634d7b21-a524-4159-bd8f-7df5127be0e6/pkce
