@@ -9,11 +9,6 @@ Required fields for future form submissions:
 - `submitter`
 - `domain`
 
-Recommended image locations:
-
-- Applications: `images/applications/`
-- Tools: `images/tools/`
-
 All other fields may be left blank or omitted. Optional blank fields should not break the site.
 
 ```yaml
@@ -21,7 +16,7 @@ All other fields may be left blank or omitted. Optional blank fields should not 
 title: "Entry title"
 layout: gallery-item
 summary: "One or two sentences for the gallery card."
-image: /images/applications/example-thumbnail.png
+image: /images/example-thumbnail.png
 image_alt: "Short description of the image"
 submitter: "Name of submitter"
 affiliation: "Institution or project"

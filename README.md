@@ -18,11 +18,11 @@ image: /images/hls4ml.png
 
 ## Add an Application or Tool Gallery Entry
 
-Application gallery entries live in `_applications/`. Tool gallery entries live in `_tools/`. Each entry is a Markdown file with YAML front matter and a longer writeup below it. Use `layout: gallery-item` so the entry renders with the shared gallery detail page.
+Application gallery entries live in `_applications/`. Tool gallery entries live in `_tools/`. Each entry is a Markdown file with YAML front matter and a longer writeup below it. Cards appear on the home page, and `layout: gallery-item` renders the entry's detail page.
 
 The required fields for a future Google Form are title, summary, submitter, and domain. Optional fields include image, image alt text, affiliation, tools used, tags, review status, links, and long-form content. Optional blank fields should not break the website. See `docs/gallery-entry-template.md` for a complete starter template.
 
-Application images should be added to `images/applications/`; tool images should be added to `images/tools/`. Reference image paths with a leading `/`, for example `/images/applications/example.png`.
+All CMS-managed images can live in `images/`. Reference image paths with a leading `/`, for example `/images/example.png`.
 
 ## Edit Content With Decap CMS
 
@@ -33,6 +33,8 @@ The CMS is configured in `admin/config.yml` for:
 - Applications in `_applications/`
 - Tools in `_tools/`
 - News posts in `_posts/`
+- Events in `_data/events.yml`
+- Resources in `_data/resources.yml`
 
 Required gallery fields are title, summary, submitter, and domain. Optional fields include image, image alt text, affiliation, tools used, tags, links, review status, and body content.
 

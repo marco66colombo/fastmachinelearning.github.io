@@ -35,18 +35,19 @@ title: Home
                 {% assign is_resource_post = true %}
                 {% endif %}
                 {% unless is_resource_post %}
+                {% assign post_image = post.image | default: "/images/fastml_logo.png" %}
                 <div class="row">
                     <div class="card m-2 post-preview">
                         <div class="row g-0">
                             <div class="col-md-4 d-flex align-items-center">
-                                <img src="{{ site.baseurl }}{{ post.image }}" class="img-fluid rounded-start" alt="{{post.title}}"
+                                <img src="{{ site.baseurl }}{{ post_image }}" class="img-fluid rounded-start" alt="{{post.title}}"
                                     style="max-width: 100%;">
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body">
                                     <h4 class="card-title text-center">{{post.title}}</h4>
                                     <p class="card-text">{{post.description}}</p>
-                                    <div class="d-flex justify-content-center"><a href="{{post.external_link}}"
+                                    <div class="d-flex justify-content-center"><a href="{{ post.external_link }}"
                                             class="btn btn-primary">View Details</a></div>
                                 </div>
                             </div>
@@ -65,8 +66,9 @@ title: Home
                 <p class="lead mb-4">{{ site.news_byline | markdownify }}</p>
             </div>
             <div class="col-lg-5 mx-auto">
-                {% if site.data.events and site.data.events.size > 0 %}
-                {% for event in site.data.events %}
+                {% assign events = site.data.events.items | default: site.data.events %}
+                {% if events and events.size > 0 %}
+                {% for event in events %}
                 <div class="row">
                     <div class="card m-2 post-preview">
                         <div class="row g-0">
@@ -115,8 +117,9 @@ title: Home
                 <p class="lead mb-4">Core projects and platforms from the FastML ecosystem.</p>
             </div>
             <div class="col-lg-5 mx-auto">
-                {% if site.data.resources and site.data.resources.size > 0 %}
-                {% for resource in site.data.resources %}
+                {% assign resources = site.data.resources.items | default: site.data.resources %}
+                {% if resources and resources.size > 0 %}
+                {% for resource in resources %}
                 <div class="row">
                     <div class="card m-2 post-preview">
                         <div class="row g-0">
@@ -138,6 +141,100 @@ title: Home
                 {% endfor %}
                 {% else %}
                 <p class="text-center text-muted">Resource links will be added soon.</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <div class="bg-light container-fluid">
+        <div class="px-4 my-5 text-center" id="applications">
+            <h1 class="pb-4 display-5 fw-bold">Applications</h1>
+            <div class="col-lg-6 mx-auto text-center">
+                <p class="lead mb-4">Community examples showing how FastML tools are used in real scientific workflows.</p>
+            </div>
+            <div class="col-lg-5 mx-auto">
+                {% assign applications = site.applications | sort: "title" %}
+                {% if applications and applications.size > 0 %}
+                {% for item in applications %}
+                {% assign item_image = item.image | default: "/images/fastml_logo.png" %}
+                {% assign item_summary = item.summary | default: item.description %}
+                <div class="row">
+                    <div class="card m-2 post-preview">
+                        <div class="row g-0">
+                            <div class="col-md-4 d-flex align-items-center">
+                                {% if item_image contains '://' %}
+                                <img src="{{ item_image }}" class="img-fluid rounded-start" alt="{{ item.image_alt | default: item.title }}"
+                                    style="max-width: 100%;">
+                                {% else %}
+                                <img src="{{ item_image | relative_url }}" class="img-fluid rounded-start" alt="{{ item.image_alt | default: item.title }}"
+                                    style="max-width: 100%;">
+                                {% endif %}
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h4 class="card-title text-center">{{ item.title }}</h4>
+                                    {% if item_summary %}
+                                    <p class="card-text">{{ item_summary }}</p>
+                                    {% endif %}
+                                    {% if item.tools_used and item.tools_used.size > 0 %}
+                                    <p class="card-text text-center mb-3"><em>{{ item.tools_used | join: ", " }}</em></p>
+                                    {% endif %}
+                                    <div class="d-flex justify-content-center"><a href="{{ item.url | relative_url }}"
+                                            class="btn btn-primary">View Details</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                {% else %}
+                <p class="text-center text-muted">Application profiles will be added soon.</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <div class="bg-light container-fluid">
+        <div class="px-4 my-5 text-center" id="tools">
+            <h1 class="pb-4 display-5 fw-bold">Tools</h1>
+            <div class="col-lg-6 mx-auto text-center">
+                <p class="lead mb-4">Software, firmware, and methodology profiles from the FastML ecosystem.</p>
+            </div>
+            <div class="col-lg-5 mx-auto">
+                {% assign tools = site.tools | sort: "title" %}
+                {% if tools and tools.size > 0 %}
+                {% for item in tools %}
+                {% assign item_image = item.image | default: "/images/fastml_logo.png" %}
+                {% assign item_summary = item.summary | default: item.description %}
+                <div class="row">
+                    <div class="card m-2 post-preview">
+                        <div class="row g-0">
+                            <div class="col-md-4 d-flex align-items-center">
+                                {% if item_image contains '://' %}
+                                <img src="{{ item_image }}" class="img-fluid rounded-start" alt="{{ item.image_alt | default: item.title }}"
+                                    style="max-width: 100%;">
+                                {% else %}
+                                <img src="{{ item_image | relative_url }}" class="img-fluid rounded-start" alt="{{ item.image_alt | default: item.title }}"
+                                    style="max-width: 100%;">
+                                {% endif %}
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h4 class="card-title text-center">{{ item.title }}</h4>
+                                    {% if item_summary %}
+                                    <p class="card-text">{{ item_summary }}</p>
+                                    {% endif %}
+                                    {% if item.tools_used and item.tools_used.size > 0 %}
+                                    <p class="card-text text-center mb-3"><em>{{ item.tools_used | join: ", " }}</em></p>
+                                    {% endif %}
+                                    <div class="d-flex justify-content-center"><a href="{{ item.url | relative_url }}"
+                                            class="btn btn-primary">View Details</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                {% else %}
+                <p class="text-center text-muted">Tool profiles will be added soon.</p>
                 {% endif %}
             </div>
         </div>

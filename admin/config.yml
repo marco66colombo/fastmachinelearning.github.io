@@ -31,14 +31,70 @@ media_folder: images/uploads
 public_folder: /images/uploads
 
 collections:
+  - name: news
+    label: News
+    label_singular: News Item
+    folder: _posts
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    media_folder: /images
+    public_folder: /images
+    editor:
+      preview: false
+    fields:
+      - { label: Layout, name: layout, widget: hidden, default: post }
+      - { label: Title, name: title, widget: string, required: true }
+      - { label: Description, name: description, widget: text, required: true }
+      - { label: Details URL, name: external_link, widget: string, required: true, hint: "This is the URL used by the View Details button on the home page." }
+      - { label: Image, name: image, widget: image, required: false }
+
+  - name: events
+    label: Events
+    editor:
+      preview: false
+    files:
+      - name: events
+        label: Event Cards
+        file: _data/events.yml
+        fields:
+          - label: Events
+            name: items
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { label: Title, name: title, widget: string, required: true }
+              - { label: Date, name: date, widget: string, required: false }
+              - { label: Location, name: location, widget: string, required: false }
+              - { label: Image, name: image, widget: image, required: false }
+              - { label: External Link, name: external_link, widget: string, required: true }
+
+  - name: resources
+    label: Resources
+    editor:
+      preview: false
+    files:
+      - name: resources
+        label: Resource Cards
+        file: _data/resources.yml
+        fields:
+          - label: Resources
+            name: items
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { label: Title, name: title, widget: string, required: true }
+              - { label: Description, name: description, widget: text, required: true }
+              - { label: Image, name: image, widget: image, required: false }
+              - { label: External Link, name: external_link, widget: string, required: true }
+
   - name: applications
     label: Applications
     label_singular: Application
     folder: _applications
     create: true
     slug: "{{slug}}"
-    media_folder: /images/applications
-    public_folder: /images/applications
+    media_folder: /images
+    public_folder: /images
     editor:
       preview: false
     fields:
@@ -83,8 +139,8 @@ collections:
     folder: _tools
     create: true
     slug: "{{slug}}"
-    media_folder: /images/tools
-    public_folder: /images/tools
+    media_folder: /images
+    public_folder: /images
     editor:
       preview: false
     fields:
@@ -121,22 +177,4 @@ collections:
         options:
           - draft
           - approved
-      - { label: Body, name: body, widget: markdown, required: false }
-
-  - name: news
-    label: News
-    label_singular: News Item
-    folder: _posts
-    create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    media_folder: /images
-    public_folder: /images
-    editor:
-      preview: false
-    fields:
-      - { label: Layout, name: layout, widget: hidden, default: post }
-      - { label: Title, name: title, widget: string, required: true }
-      - { label: Description, name: description, widget: text, required: true }
-      - { label: External Link, name: external_link, widget: string, required: false }
-      - { label: Image, name: image, widget: image, required: false }
       - { label: Body, name: body, widget: markdown, required: false }

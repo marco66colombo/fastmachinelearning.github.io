@@ -5,10 +5,10 @@
     <main class="bg-light container-fluid gallery-detail-page">
         <article class="container px-4 py-5">
             {% if page.collection == "applications" %}
-            {% assign gallery_url = "/applications/" %}
+            {% assign gallery_url = "/#applications" %}
             {% assign gallery_label = "Applications" %}
             {% elsif page.collection == "tools" %}
-            {% assign gallery_url = "/tools/" %}
+            {% assign gallery_url = "/#tools" %}
             {% assign gallery_label = "Tools" %}
             {% endif %}
 
@@ -28,7 +28,11 @@
                     <p class="lead">{{ detail_summary }}</p>
                     {% endif %}
                 </div>
+                {% if detail_image contains '://' %}
+                <img src="{{ detail_image }}" class="gallery-detail-image" alt="{{ page.image_alt | default: page.title }}">
+                {% else %}
                 <img src="{{ detail_image | relative_url }}" class="gallery-detail-image" alt="{{ page.image_alt | default: page.title }}">
+                {% endif %}
             </div>
 
             <div class="gallery-detail-layout">

@@ -32,11 +32,11 @@ navbar:
       link: "#resources"
       autoscroll: true
     - name: Applications
-      link: "/applications/"
-      autoscroll: false
+      link: "#applications"
+      autoscroll: true
     - name: Tools
-      link: "/tools/"
-      autoscroll: false
+      link: "#tools"
+      autoscroll: true
     - name: Collaboration
       link: "#collaboration"
       autoscroll: true
