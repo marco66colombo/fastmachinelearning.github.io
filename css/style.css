@@ -11,6 +11,8 @@
 #news,
 #events,
 #resources,
+#applications,
+#tools,
 #collaboration,
 #governance,
 #sponsors {
@@ -276,6 +278,234 @@
     color: #000000;
 }
 
+.gallery-page,
+.gallery-detail-page {
+    padding-top: var(--navbar-offset);
+}
+
+.gallery-header {
+    max-width: 760px;
+    margin: 0 auto 36px;
+}
+
+.gallery-grid {
+    display: grid;
+    gap: 18px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.gallery-card {
+    display: grid;
+    grid-template-columns: minmax(180px, 30%) 1fr;
+    gap: 0;
+    overflow: hidden;
+    border: 1px solid #e6e6e6;
+    border-radius: 8px;
+    background: #ffffff;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04);
+}
+
+.gallery-card__image-link {
+    display: block;
+    min-height: 220px;
+    background: #f4f4f4;
+}
+
+.gallery-card__image {
+    width: 100%;
+    height: 100%;
+    min-height: 220px;
+    object-fit: contain;
+    padding: 24px;
+}
+
+.gallery-card__body {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 24px;
+}
+
+.gallery-card__eyebrow {
+    color: #6a6a6a;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.gallery-card__title {
+    margin: 0;
+    font-size: 1.35rem;
+    font-weight: 700;
+}
+
+.gallery-card__title a {
+    color: var(--charcoal);
+    text-decoration: none;
+}
+
+.gallery-card__title a:hover {
+    color: #000000;
+    text-decoration: underline;
+}
+
+.gallery-card__summary {
+    margin: 0;
+    color: #333333;
+}
+
+.gallery-meta {
+    display: grid;
+    gap: 2px;
+    color: #333333;
+    font-size: 0.95rem;
+}
+
+.gallery-meta__label,
+.gallery-fact__label {
+    color: #6a6a6a;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.tag {
+    display: inline-flex;
+    align-items: center;
+    min-height: 28px;
+    padding: 4px 9px;
+    border: 1px solid #dddddd;
+    border-radius: 999px;
+    color: #333333;
+    background: #f7f7f7;
+    font-size: 0.82rem;
+    font-weight: 600;
+}
+
+.gallery-card__button {
+    margin-top: auto;
+}
+
+.gallery-detail-header {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(220px, 360px);
+    gap: 32px;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto 36px;
+}
+
+.gallery-back-link {
+    max-width: 1100px;
+    margin: 0 auto 20px;
+}
+
+.gallery-back-link a {
+    color: var(--charcoal);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.gallery-back-link a::before {
+    content: "←";
+    margin-right: 8px;
+    color: #6a6a6a;
+}
+
+.gallery-back-link a:hover {
+    text-decoration: underline;
+}
+
+.gallery-detail-image {
+    width: 100%;
+    max-height: 260px;
+    object-fit: contain;
+    padding: 24px;
+    border: 1px solid #e6e6e6;
+    border-radius: 8px;
+    background: #ffffff;
+}
+
+.gallery-detail-layout {
+    display: grid;
+    grid-template-columns: 280px minmax(0, 1fr);
+    gap: 32px;
+    align-items: start;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.gallery-facts {
+    display: grid;
+    gap: 16px;
+    padding: 20px;
+    border: 1px solid #e6e6e6;
+    border-radius: 8px;
+    background: #ffffff;
+}
+
+.gallery-fact {
+    display: grid;
+    gap: 4px;
+}
+
+.gallery-link-list {
+    display: grid;
+    gap: 6px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.gallery-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--charcoal);
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.gallery-link::after {
+    content: "→";
+    color: #6a6a6a;
+    font-size: 0.9rem;
+}
+
+.gallery-link:hover {
+    color: #000000;
+    text-decoration: underline;
+}
+
+.gallery-content {
+    padding: 28px;
+    border: 1px solid #e6e6e6;
+    border-radius: 8px;
+    background: #ffffff;
+}
+
+.gallery-content h2 {
+    margin-top: 28px;
+    margin-bottom: 12px;
+    font-size: 1.35rem;
+    font-weight: 700;
+}
+
+.gallery-content h2:first-child {
+    margin-top: 0;
+}
+
 .collab-list li {
     break-inside: avoid;
     padding: 4px 0;
@@ -296,5 +526,21 @@
 @media (max-width: 768px) {
     .collab-list {
         columns: 1;
+    }
+
+    .gallery-card,
+    .gallery-detail-header,
+    .gallery-detail-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-card__image-link,
+    .gallery-card__image {
+        min-height: 180px;
+    }
+
+    .gallery-card__body,
+    .gallery-content {
+        padding: 20px;
     }
 }

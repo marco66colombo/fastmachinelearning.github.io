@@ -1,67 +1,72 @@
-# Fast ML Lab Website Instructions
-This website is built on GitHub Pages using Jekyll, and thus, editing raw HTML should be unnecessary for most content updates.
+# FastML Website Content Editing
 
-## Add a News Item
+This website is built on GitHub Pages with Jekyll, but the main editing path is now the Decap CMS admin panel rather than direct code edits.
 
-Create a file `_posts/yyyy-mm-dd-title.md` and add the following at the beginning:
+## Preferred Workflow
 
-```yaml
----
-title: HLS4ML
-external_link: https://fastmachinelearning.org/hls4ml/
-layout: post
-description: 'hls4ml: an open-source code framework for translating machine learning algorithms directly into FPGA firmware'
-image: /images/hls4ml.png
----
-```
- Note that file paths for images should include a leading `/` to indicate an absolute path from the root of the site. Putting quotes around the title/description (single or double) is recommended to avoid issues with yaml parsing. You can also add markdown content following this header and it will render as a complete web page, but as of yet there is no link to this post displayed on the front page, only content from the header. This may change in the future.
+Use the Decap CMS at `/admin/` to add, update, or remove website content. This is the intended path for routine content work because it lets people update the site quickly without needing to work directly in the codebase.
 
+The CMS currently manages:
 
-## Add a Person
-In the file `_data/people/institution_name/lastf.yml` include the following:
-```yaml
-name: First Last
-degree: Degree
-field: Field
-position: Current Position at Institution
-interests: List of Interests
-image: /images/lastf.png
-external_link: http://your.url.here/
-```
-Note that the Jekyll site is set up to generate and alphabetize the institution list based on the folder names on the fly, interpreting an underscore in the directory name as a space. Therefore, if adding someone from a new institution, just add a new folder for their institution and place the person's info file inside. Note that file paths for images should include a leading `/` to indicate an absolute path from the root of the site.
+- News
+- Events
+- Resources
+- Applications
+- Tools
 
-## Add a Paper
-Add papers to the yaml list in `_data/papers.yml`
+Collaboration, governance, sponsors/partners, and contact are still managed directly in code.
 
-Note that this will render markdown syntax. Putting quotes around the title (single or double) is recommended to avoid issues with yaml parsing.
+## Access
 
-**Example:**
-```yaml
-- 'Real-time Artificial Intelligence for Accelerator Control: A Study at the Fermilab Booster, [arXiv:2011.07371](https://arxiv.org/abs/2011.07371).'
-```
+Editing through the CMS requires an invite link and access to the configured DecapBridge/GitHub setup.
 
-## Add a Talk
-Add talks to the yaml list in `_data/talks.yml`
+Marco Colombo is currently managing CMS invites. Reach out to:
 
-Note that this will render markdown syntax. Putting quotes around the title (single or double) is recommended to avoid issues with yaml parsing.
+- `colombo.marco24@gmail.com`
+- `mcolom4@illinois.edu`
 
-**Example:**
-```yaml
-- "C. Herwig, An ML Control System for the Fermilab Booster, BIDS Machine Learning and Science Forum, April 2021, [abstract](https://bids.berkeley.edu/events/machine-learning-and-science-forum-2021-0405)"
-```
+## How It Works
 
-## Add a Sponsor
-Add sponsors to the yaml list in `_data/sponsors.yml`
+Decap is a Git-backed CMS. Editors work in the browser, and the CMS writes Markdown, YAML, and image changes back to the repository. GitHub Pages then rebuilds the website.
 
-Note that this will **not** render markdown syntax. Entries for both `name` and `image` fields are required (see example). Note that file paths for images should include a leading `/` to indicate an absolute path from the root of the site.
+This keeps the site static and version-controlled, while avoiding the need for most editors to work directly with Git or Jekyll.
+
+## Direct Code Editing
+
+It is still possible to edit content directly in the repository. This is the fallback path, not the preferred one.
+
+Main content locations:
+
+- News: `_posts/`
+- Events: `_data/events.yml`
+- Resources: `_data/resources.yml`
+- Applications: `_applications/`
+- Tools: `_tools/`
+- Images: `images/`
+
+If you edit content directly, use leading `/` paths for images, for example `/images/example.png`.
 
 
-```yaml
-- name: National Science Foundation
-  image: /images/nsf.png
+## Local CMS Testing
+
+To test the CMS locally, set `local_backend: true` in the config you are using and start the Decap local backend proxy:
+
+```bash
+npx decap-server
 ```
 
-## Test the Site Locally
-To test the site locally, install Jekyll along with the Jekyll github-pages extension (doing so via conda is recommended) and run the following command: `jekyll serve`
+Then start the Jekyll site:
 
- This will start a local development web server to preview the site. Note that updating the config files may require restarting this server to take effect.
+```bash
+jekyll serve
+```
+
+Open:
+
+```text
+http://127.0.0.1:4000/admin/
+```
+
+## Decap Config
+
+- `admin/config.yml`: production config for `fastmachinelearning/fastmachinelearning.github.io`
